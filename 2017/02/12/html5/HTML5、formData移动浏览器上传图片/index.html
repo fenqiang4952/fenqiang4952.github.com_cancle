@@ -1,0 +1,858 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="html5,移动端,图片上传," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="stiveYan" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="####　该上传方法对于不支持html5的浏览器无法使用。主要针对移动浏览器。
+1、html12345678&amp;lt;div class=&amp;quot;upload_img&amp;quot;&amp;gt;    &amp;lt;div  class=&amp;quot;file&amp;quot;&amp;gt;        &amp;lt;span class=&amp;quot;plus&amp;quot;&amp;gt;+&amp;lt;/span&amp;gt;        &amp;l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5、formData移动浏览器上传图片">
+<meta property="og:url" content="http://yanfenqiang.com/2017/02/12/html5/HTML5、formData移动浏览器上传图片/index.html">
+<meta property="og:site_name" content="stiveYan">
+<meta property="og:description" content="####　该上传方法对于不支持html5的浏览器无法使用。主要针对移动浏览器。
+1、html12345678&amp;lt;div class=&amp;quot;upload_img&amp;quot;&amp;gt;    &amp;lt;div  class=&amp;quot;file&amp;quot;&amp;gt;        &amp;lt;span class=&amp;quot;plus&amp;quot;&amp;gt;+&amp;lt;/span&amp;gt;        &amp;l">
+<meta property="og:updated_time" content="2017-02-12T12:10:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5、formData移动浏览器上传图片">
+<meta name="twitter:description" content="####　该上传方法对于不支持html5的浏览器无法使用。主要针对移动浏览器。
+1、html12345678&amp;lt;div class=&amp;quot;upload_img&amp;quot;&amp;gt;    &amp;lt;div  class=&amp;quot;file&amp;quot;&amp;gt;        &amp;lt;span class=&amp;quot;plus&amp;quot;&amp;gt;+&amp;lt;/span&amp;gt;        &amp;l">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6386166771321161000',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yanfenqiang.com/2017/02/12/html5/HTML5、formData移动浏览器上传图片/"/>
+
+
+
+
+
+  <title> HTML5、formData移动浏览器上传图片 | stiveYan </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e9ee1cefa3d551fcc6be9b6619c1ce41";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">stiveYan</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">不要辜负了自己所受的苦难！</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yanfenqiang.com/2017/02/12/html5/HTML5、formData移动浏览器上传图片/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="stiveYan">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://okckk29xr.bkt.clouddn.com/blog/head/96591-102.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="stiveYan">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="stiveYan" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5、formData移动浏览器上传图片
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-12T19:46:09+08:00">
+                2017-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/12/html5/HTML5、formData移动浏览器上传图片/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/12/html5/HTML5、formData移动浏览器上传图片/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/02/12/html5/HTML5、formData移动浏览器上传图片/" class="leancloud_visitors" data-flag-title="HTML5、formData移动浏览器上传图片">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>####　该上传方法对于不支持html5的浏览器无法使用。主要针对移动浏览器。</p>
+<h3 id="1、html"><a href="#1、html" class="headerlink" title="1、html"></a>1、html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;upload_img&quot;&gt;</div><div class="line">    &lt;div  class=&quot;file&quot;&gt;</div><div class="line">        &lt;span class=&quot;plus&quot;&gt;+&lt;/span&gt;</div><div class="line">        &lt;span class=&quot;text&quot;&gt;请拍照上传&lt;/span&gt;</div><div class="line">        &lt;input  class=&quot;fileupload&quot; type=&quot;file&quot; name=&quot;fangchanzheng1&quot; accept=&quot;image/*&quot; capture=&quot;camera&quot; /&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;p class=&quot;info&quot;&gt; 房产证照片 &lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>type 是file 加上<strong>capture=”camera”</strong> 可以在移动端打开摄像头。<a id="more"></a>
+<h3 id="2、CSS"><a href="#2、CSS" class="headerlink" title="2、CSS"></a>2、CSS</h3>修改上传文件按钮的css<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.info &#123;</div><div class="line">    text-align: center;</div><div class="line">    height: 36px;</div><div class="line">    line-height: 36px;</div><div class="line">    color: #666666;</div><div class="line">    font-size: 12px;</div><div class="line">&#125;</div><div class="line">.file .plus &#123;</div><div class="line">    display: inline-block;</div><div class="line">    width: 100%;</div><div class="line">    font-size: 86px;</div><div class="line">    text-align: center;</div><div class="line">    line-height: 67px;</div><div class="line"></div><div class="line">&#125;</div><div class="line">.file .text &#123;</div><div class="line">    position: absolute;</div><div class="line">    display: block;</div><div class="line">    bottom: 12px;</div><div class="line">    width: 100%;</div><div class="line">    text-align: center; </div><div class="line">    height: 20px;</div><div class="line">    line-height: 20px;</div><div class="line">&#125;</div><div class="line">.file &#123;</div><div class="line">    position: relative;</div><div class="line">    display: inline-block;</div><div class="line">    background: #F3F3F3;</div><div class="line">    border:1px solid #DCDCDC;</div><div class="line">    color: #999999;</div><div class="line">    border-radius: 0;</div><div class="line">    text-decoration: none;</div><div class="line">    text-indent: 0;</div><div class="line">    line-height: 20px;</div><div class="line">    font-size: 12px;</div><div class="line">    letter-spacing: normal;</div><div class="line">    width: 100%;</div><div class="line">    height: 96px;</div><div class="line">    overflow: hidden;</div><div class="line">    text-align: center;</div><div class="line">    line-height: 96px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.file input &#123;</div><div class="line">    position: absolute;</div><div class="line">    font-size: 100px;</div><div class="line">    right: 0;</div><div class="line">    top: 0;</div><div class="line">    opacity: 0;</div><div class="line">    width: 100%;</div><div class="line">    height: 96px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3、图片预览"><a href="#3、图片预览" class="headerlink" title="3、图片预览"></a>3、图片预览</h3><ul>
+<li>图片预览使用了插件 <a href="https://github.com/blueimp/JavaScript-Load-Image" target="_blank" rel="external">https://github.com/blueimp/JavaScript-Load-Image</a></li>
+<li>代码如下，给上传按钮绑定change事件，change后调用thumbnail方法，在方法内部，当图片加载完成后，创建图片dom等操作，展示预览的图片。由于要替换图片所以给上传文件的按钮设置一个属性zidingyiname,所以在替换图片的时候，通过该属性就可以区分这个按钮要替换图片，遍历filesList把重复了的zidingyiname的file给删除。</li>
+<li>在这个方法的最后，把file对象push进filesList中，姑且认为这个是要上传的图片的数组。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">var filesList = [];</div><div class="line">var thumbnail = function (e) &#123;</div><div class="line">		var $house_imgs = $(&quot;.house-img-upload&quot;).eq(0);</div><div class="line">		var $IDcard_imgs = $(&quot;.IDcard-img-upload&quot;).eq(0);</div><div class="line">		var This = $(this);</div><div class="line">		loadImage(</div><div class="line">	        e.target.files[0],</div><div class="line">	        function (img) &#123;</div><div class="line">	        	var $width = $(&quot;.file&quot;).eq(0).width();</div><div class="line">	        	var $heigth = &apos;96&apos;; </div><div class="line">	        	// 设置图片显示的方法，这个方法应该拿出来，太忙了，没时间。</div><div class="line">	        	if ($width/$heigth &gt; $(img).attr(&apos;width&apos;)/$(img).attr(&apos;height&apos;)) &#123;</div><div class="line">	        		var ratio = $heigth/$(img).attr(&apos;height&apos;);</div><div class="line">	        		$(img).css(&#123;</div><div class="line">		        		width: ratio*$(img).attr(&apos;width&apos;)+&apos;px&apos;,</div><div class="line">						height: $heigth+&apos;px&apos;</div><div class="line">		        	&#125;);</div><div class="line">	        	&#125; else if($width/$heigth &lt; $(img).attr(&apos;width&apos;)/$(img).attr(&apos;height&apos;))&#123;</div><div class="line">	        		var ratio = $width/$(img).attr(&apos;width&apos;);</div><div class="line">	        		$(img).css(&#123;</div><div class="line">	        			width: $width+&apos;px&apos;,</div><div class="line">						height: ratio*$(img).attr(&apos;height&apos;)+&apos;px&apos;</div><div class="line">	        		&#125;)</div><div class="line">	        	&#125;else &#123;</div><div class="line">	        		var ratio = $width/$(img).attr(&apos;width&apos;);</div><div class="line">	        		$(img).css(&#123;</div><div class="line">	        			width: $width+&apos;px&apos;,</div><div class="line">						height: ratio*$(img).attr(&apos;height&apos;)+&apos;px&apos;</div><div class="line">	        		&#125;)</div><div class="line">	        	&#125;</div><div class="line">																				        	    　　　　This.parent().find(&apos;.plus&apos;).remove().end().find(&apos;.text&apos;).remove().end().find(&apos;img&apos;).remove();</div><div class="line">	        	This.before($(img));</div><div class="line">	        	This.parent().parent().next().css(&apos;display&apos;,&apos;inline-block&apos;);</div><div class="line">	        &#125;</div><div class="line">	    );</div><div class="line">    	e.target.files[0].zidingyiname = This.attr(&apos;name&apos;);</div><div class="line">    	for (var i=0,l=filesList.length;i&lt;l;i++) &#123;</div><div class="line">    		if (This.attr(&apos;name&apos;) == filesList[i].zidingyiname) &#123;</div><div class="line">    			filesList.splice(i,1)</div><div class="line">    			break;</div><div class="line">    		&#125;</div><div class="line">    	&#125;</div><div class="line">		filesList.push(e.target.files[0]);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	$(&apos;.fileupload&apos;).bind(&apos;change&apos;,thumbnail);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4、图片上传"><a href="#4、图片上传" class="headerlink" title="4、图片上传"></a>4、图片上传</h3><ul>
+<li>通过html5进行图片的上传，var formData = new FormData();创建formData对象，然后将需要上传的参数append到formData对象中。将上文提到的filesLlist进行遍历append到formData中。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">$(&quot;#submitOrder&quot;).on(&apos;click&apos;, function() &#123;</div><div class="line">		var userName = $(&quot;#userName&quot;).val().trim();</div><div class="line">		var amount = $(&quot;#amount&quot;).val().trim();</div><div class="line">		var zhouqiSelect = $(&quot;#zhouqiSelect&quot;).find(&apos;select&apos;).eq(0).val();</div><div class="line">		// 从url中获取productId;</div><div class="line">		var url  = window.location.href;</div><div class="line">		var productId = url.split(&quot;#&quot;)[1];</div><div class="line">		</div><div class="line">		if (userName.length != 0 &amp;&amp; userName.length&lt;5 &amp;&amp; amount.length != 0 &amp;&amp;$(&quot;.house-img-upload&quot;).eq(0).find(&quot;img&quot;).length != 0) &#123;</div><div class="line">			</div><div class="line">			var $upload_loading = $(&quot;#upload_loading&quot;);</div><div class="line">			</div><div class="line">			$upload_loading.fadeIn();</div><div class="line">			</div><div class="line">			</div><div class="line">			var formData = new FormData();</div><div class="line">			for (var i=0,l=filesList.length;i&lt;l;i++) &#123;</div><div class="line">				formData.append(filesList[i].zidingyiname,filesList[i]);</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			formData.append(&apos;name&apos;,userName);</div><div class="line">			formData.append(&apos;amount&apos;,amount);</div><div class="line">			formData.append(&apos;zhouqi&apos;,zhouqiSelect);</div><div class="line">			formData.append(&apos;productId&apos;,productId);</div><div class="line">			formData.append(&apos;userId&apos;,$.cookie(&apos;userId&apos;));</div><div class="line">			formData.append(&apos;sectionId&apos;,$.cookie(&apos;sectionId&apos;));</div><div class="line">			formData.append(&apos;token&apos;,$.cookie(&apos;token&apos;));</div><div class="line">			</div><div class="line">		    $.ajax(&#123;</div><div class="line">		        url: urlEndPoint,  //server script to process data</div><div class="line">		        type: &apos;POST&apos;,</div><div class="line">		        data: formData,</div><div class="line">		        cache: false,</div><div class="line">		        contentType: false,</div><div class="line">		        processData: false</div><div class="line">		    &#125;).done(function(res) &#123;</div><div class="line">		    	$upload_loading.fadeOut();</div><div class="line">		    	</div><div class="line">		    	CommonFn.saveCookie(&#123;&quot;tips&quot;:res.tips&#125;)</div><div class="line">		    	</div><div class="line">		    	var _url = &apos;./orderSuccess.html&apos;;</div><div class="line">				</div><div class="line">				CommonFn.turnPageByPlatform(_url);</div><div class="line">			&#125;).fail(function(res) &#123;</div><div class="line">				$upload_loading.fadeOut();</div><div class="line">				formData = null;</div><div class="line">				alert(&apos;上传失败，请重新上传！&apos;);</div><div class="line">				 window.location.reload();</div><div class="line">			&#125;);;</div><div class="line">		&#125; else&#123;</div><div class="line">			alert(&quot;信息填写不正确！&quot;);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html5/" rel="tag"># html5</a>
+          
+            <a href="/tags/移动端/" rel="tag"># 移动端</a>
+          
+            <a href="/tags/图片上传/" rel="tag"># 图片上传</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/12/html5/html5地理位置/" rel="next" title="html5地理位置">
+                <i class="fa fa-chevron-left"></i> html5地理位置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/12/html5/js向webview发送URL/" rel="prev" title="js向webview发送URL">
+                js向webview发送URL <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/12/html5/HTML5、formData移动浏览器上传图片/"
+           data-title="HTML5、formData移动浏览器上传图片" data-url="http://yanfenqiang.com/2017/02/12/html5/HTML5、formData移动浏览器上传图片/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://okckk29xr.bkt.clouddn.com/blog/head/96591-102.jpg"
+               alt="stiveYan" />
+          <p class="site-author-name" itemprop="name">stiveYan</p>
+          <p class="site-description motion-element" itemprop="description">前端程序员一枚</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fenqiang4952" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/17081923" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、html"><span class="nav-number">1.</span> <span class="nav-text">1、html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、CSS"><span class="nav-number">2.</span> <span class="nav-text">2、CSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、图片预览"><span class="nav-number">3.</span> <span class="nav-text">3、图片预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、图片上传"><span class="nav-number">4.</span> <span class="nav-text">4、图片上传</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">stiveYan</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"striveyan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("f8H2LqAKGgR1FihsOOvHmqhG-gzGzoHsz", "I7yCWrjwsNzRl41RFoys1KhW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
