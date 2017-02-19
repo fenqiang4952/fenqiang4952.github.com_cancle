@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yanfenqiang.com/"/>
-  <updated>2017-02-15T15:19:07.000Z</updated>
+  <updated>2017-02-19T10:15:03.000Z</updated>
   <id>http://yanfenqiang.com/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webpack纯新手入门（一）</title>
+    <link href="http://yanfenqiang.com/2017/02/19/%E5%B7%A5%E5%85%B7/webpack%E7%BA%AF%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yanfenqiang.com/2017/02/19/工具/webpack纯新手入门（一）/</id>
+    <published>2017-02-19T10:12:10.811Z</published>
+    <updated>2017-02-19T10:15:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="webpack-纯新手入门（一）"><a href="#webpack-纯新手入门（一）" class="headerlink" title="webpack 纯新手入门（一）"></a>webpack 纯新手入门（一）</h1><blockquote>
+<p>以前也用webpack，但都是照着别人的模板改来改去，前几天看了慕课网上的<a href="http://www.imooc.com/learn/802" target="_blank" rel="external"><em>《webpack深入与实战》</em></a>，讲的非常nice,我怕自己忘了，于是周末小总结一下。</p>
+<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2></blockquote>
+<p>安装webpack,首先需要安装node.js和npm。能看webpack相信对这些东西已不在话下。再这里就不详细说了。<br><a id="more"></a></p>
+<hr>
+<p>新建一个文件夹webpack-test，用<code>npm init</code> 初始化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir webpack-test</div><div class="line">cd webpack-test</div><div class="line">npm init</div></pre></td></tr></table></figure></p>
+<p>一路回车后，再安装webpack<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install webpack --save-dev</div></pre></td></tr></table></figure></p>
+<p>在package.json中可以看到我们安装的webpack:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;webpack&quot;: &quot;^2.2.1&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="用webpack打包一个文件"><a href="#用webpack打包一个文件" class="headerlink" title="用webpack打包一个文件"></a>用webpack打包一个文件</h2><hr>
+<p>安装好webpack后，我们在根目录下新建一个hello.js文件，随便写点内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function hello(str) &#123;</div><div class="line">    alert(str);</div><div class="line">&#125;</div><div class="line">hello(&quot;hello world!&quot;);</div></pre></td></tr></table></figure></p>
+<p>然后在命令行中去打包这个文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack hello.js hello.bundle.js</div></pre></td></tr></table></figure></p>
+<p>出现如下内容则表示我们打包成功了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Hash: b387ee2c74b71f989b02</div><div class="line">Version: webpack 2.2.1</div><div class="line">Time: 39ms</div><div class="line">         Asset     Size  Chunks             Chunk Names</div><div class="line">hello.bundle.js  2.57 kB       0  [emitted]  main</div><div class="line">  [0] ./hello.js 65 bytes &#123;0&#125; [built]</div></pre></td></tr></table></figure></p>
+<p>以上就是本次打包的相关信息</p>
+<h2 id="处理css文件"><a href="#处理css文件" class="headerlink" title="处理css文件"></a>处理css文件</h2><hr>
+<p>我们新建一个css文件style.css，随便写点样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">html,</div><div class="line">body &#123;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后在hello.js中引入style.css.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(&quot;./style.css&quot;);</div></pre></td></tr></table></figure></p>
+<p>然后在命令行中再对hello.js文件进行打包，我们会发现报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ERROR in ./style.css</div><div class="line">Module parse failed: D:\workspace\webpack\webpack-test\style.css Unexpected token (2:5)</div><div class="line">You may need an appropriate loader to handle this file type.</div><div class="line">| html,</div><div class="line">| body &#123;</div><div class="line">|     padding: 0;</div><div class="line">|     margin: 0;</div><div class="line"> @ ./hello.js 1:0-22</div></pre></td></tr></table></figure></p>
+<p>错误中指出我们需要一个loader去处理css这种文件类型。<br>我们在命令行中安装css-loader和style-loader后在进行打包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm i css-loader style-loader --save-dev</div><div class="line">webpack hello.js hello.bundle.js</div></pre></td></tr></table></figure></p>
+<p>发现还是会报一样的错误，这是因为我们虽然安装了loader，但并没有指定该loader去处理css文件，<br>我们在引用style.css文件的地方修改一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(&quot;style-loader!css-loader!./style.css&quot;);</div></pre></td></tr></table></figure></p>
+<p>然后再进行打包，可以发现没有报错，且打包信息中可以看出已经对style.css进行了打包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Hash: beaf20e933b8e91d3dc1</div><div class="line">Version: webpack 2.2.1</div><div class="line">Time: 488ms</div><div class="line">          Asset     Size  Chunks             Chunk Names</div><div class="line">hello.bundle.js  12.5 kB       0  [emitted]  main</div><div class="line">   [0] ./~/style-loader!./~/css-loader!./style.css 895 bytes &#123;0&#125; [built]</div><div class="line">   [1] ./~/css-loader!./style.css 210 bytes &#123;0&#125; [built]</div><div class="line">   [2] ./~/css-loader/lib/css-base.js 1.51 kB &#123;0&#125; [built]</div><div class="line">   [3] ./~/style-loader/addStyles.js 7.15 kB &#123;0&#125; [built]</div><div class="line">   [4] ./hello.js 116 bytes &#123;0&#125; [built]</div></pre></td></tr></table></figure></p>
+<p>我们可以新建一个index.html文件将打包完成的hello.bundle.js引入，在浏览器中观察效果。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;webpack-纯新手入门（一）&quot;&gt;&lt;a href=&quot;#webpack-纯新手入门（一）&quot; class=&quot;headerlink&quot; title=&quot;webpack 纯新手入门（一）&quot;&gt;&lt;/a&gt;webpack 纯新手入门（一）&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;以前也用webpack，但都是照着别人的模板改来改去，前几天看了慕课网上的&lt;a href=&quot;http://www.imooc.com/learn/802&quot;&gt;&lt;em&gt;《webpack深入与实战》&lt;/em&gt;&lt;/a&gt;，讲的非常nice,我怕自己忘了，于是周末小总结一下。&lt;/p&gt;
+&lt;h2 id=&quot;安装webpack&quot;&gt;&lt;a href=&quot;#安装webpack&quot; class=&quot;headerlink&quot; title=&quot;安装webpack&quot;&gt;&lt;/a&gt;安装webpack&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;p&gt;安装webpack,首先需要安装node.js和npm。能看webpack相信对这些东西已不在话下。再这里就不详细说了。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://yanfenqiang.com/tags/webpack/"/>
+    
+      <category term="工具" scheme="http://yanfenqiang.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>css3美化checkbox</title>

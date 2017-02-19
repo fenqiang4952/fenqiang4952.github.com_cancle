@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="html5,移动端,webview," />
+  <meta name="keywords" content="webpack,工具," />
 
 
 
@@ -89,19 +89,25 @@
 
 
 
-<meta name="description" content="1、在js中通过1window.location.href=&amp;quot;MDWebBridge://PushWebView?url=&amp;quot;+EncodeUtf8(_url_)+&amp;quot;&amp;amp;title=&amp;quot;+EncodeUtf8(_title_);
-向webview发送URL，其中MDWebBridge、PushWebView都是自定义的，只需保证js与native一致即可。">
+<meta name="description" content="webpack 纯新手入门（一）
+以前也用webpack，但都是照着别人的模板改来改去，前几天看了慕课网上的《webpack深入与实战》，讲的非常nice,我怕自己忘了，于是周末小总结一下。
+安装webpack
+安装webpack,首先需要安装node.js和npm。能看webpack相信对这些东西已不在话下。再这里就不详细说了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js向webview发送URL">
-<meta property="og:url" content="http://yanfenqiang.com/2017/02/12/html5/js向webview发送URL/index.html">
+<meta property="og:title" content="webpack纯新手入门（一）">
+<meta property="og:url" content="http://yanfenqiang.com/2017/02/19/工具/webpack纯新手入门（一）/index.html">
 <meta property="og:site_name" content="stiveYan">
-<meta property="og:description" content="1、在js中通过1window.location.href=&amp;quot;MDWebBridge://PushWebView?url=&amp;quot;+EncodeUtf8(_url_)+&amp;quot;&amp;amp;title=&amp;quot;+EncodeUtf8(_title_);
-向webview发送URL，其中MDWebBridge、PushWebView都是自定义的，只需保证js与native一致即可。">
-<meta property="og:updated_time" content="2017-02-12T12:11:39.000Z">
+<meta property="og:description" content="webpack 纯新手入门（一）
+以前也用webpack，但都是照着别人的模板改来改去，前几天看了慕课网上的《webpack深入与实战》，讲的非常nice,我怕自己忘了，于是周末小总结一下。
+安装webpack
+安装webpack,首先需要安装node.js和npm。能看webpack相信对这些东西已不在话下。再这里就不详细说了。">
+<meta property="og:updated_time" content="2017-02-19T10:15:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js向webview发送URL">
-<meta name="twitter:description" content="1、在js中通过1window.location.href=&amp;quot;MDWebBridge://PushWebView?url=&amp;quot;+EncodeUtf8(_url_)+&amp;quot;&amp;amp;title=&amp;quot;+EncodeUtf8(_title_);
-向webview发送URL，其中MDWebBridge、PushWebView都是自定义的，只需保证js与native一致即可。">
+<meta name="twitter:title" content="webpack纯新手入门（一）">
+<meta name="twitter:description" content="webpack 纯新手入门（一）
+以前也用webpack，但都是照着别人的模板改来改去，前几天看了慕课网上的《webpack深入与实战》，讲的非常nice,我怕自己忘了，于是周末小总结一下。
+安装webpack
+安装webpack,首先需要安装node.js和npm。能看webpack相信对这些东西已不在话下。再这里就不详细说了。">
 
 
 
@@ -129,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yanfenqiang.com/2017/02/12/html5/js向webview发送URL/"/>
+  <link rel="canonical" href="http://yanfenqiang.com/2017/02/19/工具/webpack纯新手入门（一）/"/>
 
 
 
 
 
-  <title> js向webview发送URL | stiveYan </title>
+  <title> webpack纯新手入门（一） | stiveYan </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +268,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yanfenqiang.com/2017/02/12/html5/js向webview发送URL/">
+  <link itemprop="mainEntityOfPage" href="http://yanfenqiang.com/2017/02/19/工具/webpack纯新手入门（一）/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="stiveYan">
@@ -286,7 +292,7 @@
             
             
               
-                js向webview发送URL
+                webpack纯新手入门（一）
               
             
           </h1>
@@ -301,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-12T19:58:10+08:00">
-                2017-02-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-19T18:12:10+08:00">
+                2017-02-19
               </time>
             
 
@@ -320,8 +326,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/12/html5/js向webview发送URL/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/12/html5/js向webview发送URL/" itemprop="commentCount"></span>
+                <a href="/2017/02/19/工具/webpack纯新手入门（一）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/19/工具/webpack纯新手入门（一）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -329,7 +335,7 @@
 
           
           
-             <span id="/2017/02/12/html5/js向webview发送URL/" class="leancloud_visitors" data-flag-title="js向webview发送URL">
+             <span id="/2017/02/19/工具/webpack纯新手入门（一）/" class="leancloud_visitors" data-flag-title="webpack纯新手入门（一）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -358,9 +364,28 @@
       
 
       
-        <h3 id="1、在js中通过"><a href="#1、在js中通过" class="headerlink" title="1、在js中通过"></a>1、在js中通过</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.location.href=&quot;MDWebBridge://PushWebView?url=&quot;+EncodeUtf8(_url_)+&quot;&amp;title=&quot;+EncodeUtf8(_title_);</div></pre></td></tr></table></figure>
-<p>向webview发送URL，其中MDWebBridge、PushWebView都是自定义的，只需保证js与native一致即可。<br><a id="more"></a></p>
-<h3 id="2、必须转码，通过EncodeUtrf8（）"><a href="#2、必须转码，通过EncodeUtrf8（）" class="headerlink" title="2、必须转码，通过EncodeUtrf8（）."></a>2、必须转码，通过EncodeUtrf8（）.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">// 字符串转换utf-8  </div><div class="line">    function EncodeUtf8(s1) &#123;</div><div class="line">        // escape函数用于对除英文字母外的字符进行编码。如“Visit W3School!”-&gt;&quot;Visit%20W3School%21&quot;  </div><div class="line">        var s = escape(s1);</div><div class="line">        var sa = s.split(&quot;%&quot;); //sa[1]=u6211  </div><div class="line">        var retV = &quot;&quot;;</div><div class="line">        if (sa[0] != &quot;&quot;) &#123;</div><div class="line">            retV = sa[0];</div><div class="line">        &#125;</div><div class="line">        for (var i = 1; i &lt; sa.length; i++) &#123;</div><div class="line">            if (sa[i].substring(0, 1) == &quot;u&quot;) &#123;</div><div class="line">                retV += Hex2Utf8(Str2Hex(sa[i].substring(1, 5)));</div><div class="line">                if (sa[i].length &gt;= 6) &#123;</div><div class="line">                    retV += sa[i].substring(5);</div><div class="line">                &#125;</div><div class="line">            &#125; else retV += &quot;%&quot; + sa[i];</div><div class="line">        &#125;</div><div class="line">        return retV;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    function Str2Hex(s) &#123;</div><div class="line">        var c = &quot;&quot;;</div><div class="line">        var n;</div><div class="line">        var ss = &quot;0123456789ABCDEF&quot;;</div><div class="line">        var digS = &quot;&quot;;</div><div class="line">        for (var i = 0; i &lt; s.length; i++) &#123;</div><div class="line">            c = s.charAt(i);</div><div class="line">            n = ss.indexOf(c);</div><div class="line">            digS += Dec2Dig(eval(n));</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        //return value;  </div><div class="line">        return digS;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    function Dec2Dig(n1) &#123;</div><div class="line">        var s = &quot;&quot;;</div><div class="line">        var n2 = 0;</div><div class="line">        for (var i = 0; i &lt; 4; i++) &#123;</div><div class="line">            n2 = Math.pow(2, 3 - i);</div><div class="line">            if (n1 &gt;= n2) &#123;</div><div class="line">                s += &apos;1&apos;;</div><div class="line">                n1 = n1 - n2;</div><div class="line">            &#125; else</div><div class="line">                s += &apos;0&apos;;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        return s;</div><div class="line"></div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    function Dig2Dec(s) &#123;</div><div class="line">        var retV = 0;</div><div class="line">        if (s.length == 4) &#123;</div><div class="line">            for (var i = 0; i &lt; 4; i++) &#123;</div><div class="line">                retV += eval(s.charAt(i)) * Math.pow(2, 3 - i);</div><div class="line">            &#125;</div><div class="line">            return retV;</div><div class="line">        &#125;</div><div class="line">        return -1;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    function Hex2Utf8(s) &#123;</div><div class="line">        var retS = &quot;&quot;;</div><div class="line">        var tempS = &quot;&quot;;</div><div class="line">        var ss = &quot;&quot;;</div><div class="line">        if (s.length == 16) &#123;</div><div class="line">            tempS = &quot;1110&quot; + s.substring(0, 4);</div><div class="line">            tempS += &quot;10&quot; + s.substring(4, 10);</div><div class="line">            tempS += &quot;10&quot; + s.substring(10, 16);</div><div class="line">            var sss = &quot;0123456789ABCDEF&quot;;</div><div class="line">            for (var i = 0; i &lt; 3; i++) &#123;</div><div class="line">                retS += &quot;%&quot;;</div><div class="line">                ss = tempS.substring(i * 8, (eval(i) + 1) * 8);</div><div class="line"></div><div class="line">                retS += sss.charAt(Dig2Dec(ss.substring(0, 4)));</div><div class="line">                retS += sss.charAt(Dig2Dec(ss.substring(4, 8)));</div><div class="line">            &#125;</div><div class="line">            return retS;</div><div class="line">        &#125;</div><div class="line">        return &quot;&quot;;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+        <h1 id="webpack-纯新手入门（一）"><a href="#webpack-纯新手入门（一）" class="headerlink" title="webpack 纯新手入门（一）"></a>webpack 纯新手入门（一）</h1><blockquote>
+<p>以前也用webpack，但都是照着别人的模板改来改去，前几天看了慕课网上的<a href="http://www.imooc.com/learn/802" target="_blank" rel="external"><em>《webpack深入与实战》</em></a>，讲的非常nice,我怕自己忘了，于是周末小总结一下。</p>
+<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2></blockquote>
+<p>安装webpack,首先需要安装node.js和npm。能看webpack相信对这些东西已不在话下。再这里就不详细说了。<br><a id="more"></a></p>
+<hr>
+<p>新建一个文件夹webpack-test，用<code>npm init</code> 初始化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir webpack-test</div><div class="line">cd webpack-test</div><div class="line">npm init</div></pre></td></tr></table></figure></p>
+<p>一路回车后，再安装webpack<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install webpack --save-dev</div></pre></td></tr></table></figure></p>
+<p>在package.json中可以看到我们安装的webpack:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;webpack&quot;: &quot;^2.2.1&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="用webpack打包一个文件"><a href="#用webpack打包一个文件" class="headerlink" title="用webpack打包一个文件"></a>用webpack打包一个文件</h2><hr>
+<p>安装好webpack后，我们在根目录下新建一个hello.js文件，随便写点内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function hello(str) &#123;</div><div class="line">    alert(str);</div><div class="line">&#125;</div><div class="line">hello(&quot;hello world!&quot;);</div></pre></td></tr></table></figure></p>
+<p>然后在命令行中去打包这个文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack hello.js hello.bundle.js</div></pre></td></tr></table></figure></p>
+<p>出现如下内容则表示我们打包成功了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Hash: b387ee2c74b71f989b02</div><div class="line">Version: webpack 2.2.1</div><div class="line">Time: 39ms</div><div class="line">         Asset     Size  Chunks             Chunk Names</div><div class="line">hello.bundle.js  2.57 kB       0  [emitted]  main</div><div class="line">  [0] ./hello.js 65 bytes &#123;0&#125; [built]</div></pre></td></tr></table></figure></p>
+<p>以上就是本次打包的相关信息</p>
+<h2 id="处理css文件"><a href="#处理css文件" class="headerlink" title="处理css文件"></a>处理css文件</h2><hr>
+<p>我们新建一个css文件style.css，随便写点样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">html,</div><div class="line">body &#123;</div><div class="line">    padding: 0;</div><div class="line">    margin: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后在hello.js中引入style.css.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(&quot;./style.css&quot;);</div></pre></td></tr></table></figure></p>
+<p>然后在命令行中再对hello.js文件进行打包，我们会发现报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ERROR in ./style.css</div><div class="line">Module parse failed: D:\workspace\webpack\webpack-test\style.css Unexpected token (2:5)</div><div class="line">You may need an appropriate loader to handle this file type.</div><div class="line">| html,</div><div class="line">| body &#123;</div><div class="line">|     padding: 0;</div><div class="line">|     margin: 0;</div><div class="line"> @ ./hello.js 1:0-22</div></pre></td></tr></table></figure></p>
+<p>错误中指出我们需要一个loader去处理css这种文件类型。<br>我们在命令行中安装css-loader和style-loader后在进行打包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm i css-loader style-loader --save-dev</div><div class="line">webpack hello.js hello.bundle.js</div></pre></td></tr></table></figure></p>
+<p>发现还是会报一样的错误，这是因为我们虽然安装了loader，但并没有指定该loader去处理css文件，<br>我们在引用style.css文件的地方修改一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(&quot;style-loader!css-loader!./style.css&quot;);</div></pre></td></tr></table></figure></p>
+<p>然后再进行打包，可以发现没有报错，且打包信息中可以看出已经对style.css进行了打包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Hash: beaf20e933b8e91d3dc1</div><div class="line">Version: webpack 2.2.1</div><div class="line">Time: 488ms</div><div class="line">          Asset     Size  Chunks             Chunk Names</div><div class="line">hello.bundle.js  12.5 kB       0  [emitted]  main</div><div class="line">   [0] ./~/style-loader!./~/css-loader!./style.css 895 bytes &#123;0&#125; [built]</div><div class="line">   [1] ./~/css-loader!./style.css 210 bytes &#123;0&#125; [built]</div><div class="line">   [2] ./~/css-loader/lib/css-base.js 1.51 kB &#123;0&#125; [built]</div><div class="line">   [3] ./~/style-loader/addStyles.js 7.15 kB &#123;0&#125; [built]</div><div class="line">   [4] ./hello.js 116 bytes &#123;0&#125; [built]</div></pre></td></tr></table></figure></p>
+<p>我们可以新建一个index.html文件将打包完成的hello.bundle.js引入，在浏览器中观察效果。</p>
+
       
     </div>
 
@@ -383,11 +408,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/html5/" rel="tag"># html5</a>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
-            <a href="/tags/移动端/" rel="tag"># 移动端</a>
-          
-            <a href="/tags/webview/" rel="tag"># webview</a>
+            <a href="/tags/工具/" rel="tag"># 工具</a>
           
         </div>
       
@@ -400,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/12/html5/HTML5、formData移动浏览器上传图片/" rel="next" title="HTML5、formData移动浏览器上传图片">
-                <i class="fa fa-chevron-left"></i> HTML5、formData移动浏览器上传图片
+              <a href="/2017/02/15/css3/css3美化checkbox/" rel="next" title="css3美化checkbox">
+                <i class="fa fa-chevron-left"></i> css3美化checkbox
               </a>
             
           </div>
@@ -409,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/12/html5/CSS3自定义radio/" rel="prev" title="css3自定义radio">
-                css3自定义radio <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,8 +460,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/12/html5/js向webview发送URL/"
-           data-title="js向webview发送URL" data-url="http://yanfenqiang.com/2017/02/12/html5/js向webview发送URL/">
+      <div class="ds-thread" data-thread-key="2017/02/19/工具/webpack纯新手入门（一）/"
+           data-title="webpack纯新手入门（一）" data-url="http://yanfenqiang.com/2017/02/19/工具/webpack纯新手入门（一）/">
       </div>
     
   </div>
@@ -562,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、在js中通过"><span class="nav-number">1.</span> <span class="nav-text">1、在js中通过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、必须转码，通过EncodeUtrf8（）"><span class="nav-number">2.</span> <span class="nav-text">2、必须转码，通过EncodeUtrf8（）.</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-纯新手入门（一）"><span class="nav-number">1.</span> <span class="nav-text">webpack 纯新手入门（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装webpack"><span class="nav-number">1.1.</span> <span class="nav-text">安装webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用webpack打包一个文件"><span class="nav-number">1.2.</span> <span class="nav-text">用webpack打包一个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理css文件"><span class="nav-number">1.3.</span> <span class="nav-text">处理css文件</span></a></li></ol></li></ol></div>
             
 
           </div>
