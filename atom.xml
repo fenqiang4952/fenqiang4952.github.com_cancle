@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yanfenqiang.com/"/>
-  <updated>2017-02-19T10:15:03.000Z</updated>
+  <updated>2017-02-19T10:18:11.096Z</updated>
   <id>http://yanfenqiang.com/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="http://yanfenqiang.com/2017/02/19/%E5%B7%A5%E5%85%B7/webpack%E7%BA%AF%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yanfenqiang.com/2017/02/19/工具/webpack纯新手入门（一）/</id>
     <published>2017-02-19T10:12:10.811Z</published>
-    <updated>2017-02-19T10:15:03.000Z</updated>
+    <updated>2017-02-19T10:18:11.096Z</updated>
     
     <content type="html"><![CDATA[<h1 id="webpack-纯新手入门（一）"><a href="#webpack-纯新手入门（一）" class="headerlink" title="webpack 纯新手入门（一）"></a>webpack 纯新手入门（一）</h1><blockquote>
 <p>以前也用webpack，但都是照着别人的模板改来改去，前几天看了慕课网上的<a href="http://www.imooc.com/learn/802" target="_blank" rel="external"><em>《webpack深入与实战》</em></a>，讲的非常nice,我怕自己忘了，于是周末小总结一下。</p>
-<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2></blockquote>
-<p>安装webpack,首先需要安装node.js和npm。能看webpack相信对这些东西已不在话下。再这里就不详细说了。<br><a id="more"></a></p>
+</blockquote>
+<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><p>安装webpack,首先需要安装node.js和npm。能看webpack相信对这些东西已不在话下。再这里就不详细说了。<br><a id="more"></a></p>
 <hr>
 <p>新建一个文件夹webpack-test，用<code>npm init</code> 初始化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir webpack-test</div><div class="line">cd webpack-test</div><div class="line">npm init</div></pre></td></tr></table></figure></p>
 <p>一路回车后，再安装webpack<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install webpack --save-dev</div></pre></td></tr></table></figure></p>
@@ -49,8 +49,8 @@
     
       &lt;h1 id=&quot;webpack-纯新手入门（一）&quot;&gt;&lt;a href=&quot;#webpack-纯新手入门（一）&quot; class=&quot;headerlink&quot; title=&quot;webpack 纯新手入门（一）&quot;&gt;&lt;/a&gt;webpack 纯新手入门（一）&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;以前也用webpack，但都是照着别人的模板改来改去，前几天看了慕课网上的&lt;a href=&quot;http://www.imooc.com/learn/802&quot;&gt;&lt;em&gt;《webpack深入与实战》&lt;/em&gt;&lt;/a&gt;，讲的非常nice,我怕自己忘了，于是周末小总结一下。&lt;/p&gt;
-&lt;h2 id=&quot;安装webpack&quot;&gt;&lt;a href=&quot;#安装webpack&quot; class=&quot;headerlink&quot; title=&quot;安装webpack&quot;&gt;&lt;/a&gt;安装webpack&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;p&gt;安装webpack,首先需要安装node.js和npm。能看webpack相信对这些东西已不在话下。再这里就不详细说了。&lt;br&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;安装webpack&quot;&gt;&lt;a href=&quot;#安装webpack&quot; class=&quot;headerlink&quot; title=&quot;安装webpack&quot;&gt;&lt;/a&gt;安装webpack&lt;/h2&gt;&lt;p&gt;安装webpack,首先需要安装node.js和npm。能看webpack相信对这些东西已不在话下。再这里就不详细说了。&lt;br&gt;
     
     </summary>
     
