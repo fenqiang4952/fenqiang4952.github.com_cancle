@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yanfenqiang.com/"/>
-  <updated>2017-02-19T10:18:11.096Z</updated>
+  <updated>2017-02-20T14:58:59.000Z</updated>
   <id>http://yanfenqiang.com/</id>
   
   <author>
@@ -14,6 +14,88 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>webpack纯新手入门（二）</title>
+    <link href="http://yanfenqiang.com/2017/02/20/%E5%B7%A5%E5%85%B7/webpack%E7%BA%AF%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://yanfenqiang.com/2017/02/20/工具/webpack纯新手入门（二）/</id>
+    <published>2017-02-20T14:57:42.655Z</published>
+    <updated>2017-02-20T14:58:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="webpack纯新手入门（二）"><a href="#webpack纯新手入门（二）" class="headerlink" title="webpack纯新手入门（二）"></a>webpack纯新手入门（二）</h1><hr>
+<p>在<a href="http://yanfenqiang.com/2017/02/19/%E5%B7%A5%E5%85%B7/webpack%E7%BA%AF%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/#more">webpack纯新手入门（一）</a>中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。</p>
+<h1 id="webpack基本配置"><a href="#webpack基本配置" class="headerlink" title="webpack基本配置"></a>webpack基本配置</h1><p>我们在我们的根目录中新建一个<code>webpack.config.js</code>文件.可以参考<a href="http://webpack.github.io/docs/configuration.html" target="_blank" rel="external">webpack的官网config相关</a>。<br>当我们在命令行中直接运行<code>webpack</code>命令的时候，webpack会默认去执行<em>webpack.config.js</em>文件。当然，我们也可以通过<code>webpack --config xx.js</code>让webpack运行其他的配置文件。<br>以下就是一个最简单的配置文件：</p>
+<pre><code>module.exports = {
+    entry: &apos;./src/script/main.js&apos;,
+    output: {
+        path: &apos;./dist/js&apos;,
+        filename: &apos;bundle.js&apos;
+    }
+}
+</code></pre><a id="more"></a>
+<p><code>entry</code>是打包的入口,即输入。<code>output</code>为输出。<br>我们在命令行中运行<code>webpack</code>可查看打包的信息：</p>
+<pre><code>Hash: 0bd4f09244f0e8c60354
+Version: webpack 2.2.1
+Time: 35ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  2.51 kB       0  [emitted]  main
+   [0] ./src/script/main.js 0 bytes {0} [built]
+</code></pre><p>可以看到打包成功。<br>我们还可以通过npm的脚本进行打包。在<code>package.json</code>中的<code>scripts</code>对象下配置：</p>
+<pre><code>&quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;webpack&quot;: &quot;webpack --config webpack.config.js&quot;
+},
+</code></pre><p>这时我们在命令行中通过，<code>npm run webpack</code>命令同样可以打包。<br>关于多个入口文件，以及多个出口文件的配置，在这里就不详细说了。请参考官网文档。</p>
+<h1 id="loaders"><a href="#loaders" class="headerlink" title="loaders"></a>loaders</h1><h2 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h2><p><a href="http://babeljs.io/docs/setup/" target="_blank" rel="external">babel</a> 是一种将ES5，ES6，ES7等先进的JS语法解析成浏览器都可以识别的js语法的一种工具。<br>当我们用ES6编写js文件时，我们就需要对该文件进行处理。<br>我们在<em>webpack.config.js</em>中安装loader,对js文件进行处理。</p>
+<pre><code>module.exports = {
+    entry: &apos;./src/script/main.js&apos;,
+    output: {
+        path: &apos;./dist/js&apos;,
+        filename: &apos;bundle.js&apos;
+    },
+    module: {
+        loaders:[
+            {
+                test: /\.js$/,
+                loader: &quot;babel&quot;,
+                query: {
+                    presets: [&apos;latest&apos;]
+                }
+            }
+        ]
+    }
+}
+</code></pre><p>安装方式如上，<code>loaders</code>为一个数组，可以有各种不同的loader。<br><code>test</code>表示要匹配的文件（正则表达式），<code>loader</code>就是处理该文件对应的loader了。<code>query</code>是需要用到的插件，这个需要具体根据不同的loader进行设置，可参考该loader的文档。<br>其他常用的loader还有<code>css-loader</code>,<code>style-loader</code>,<code>postcss-loader</code>,<code>html-loader</code>,<code>file-loader</code>等，基本用法大同小异，相信你看过一个后，其他的看看文档都没有问题了。<br>参考：<a href="http://webpack.github.io/docs/list-of-loaders.html" target="_blank" rel="external">官网的loaders列表</a></p>
+<p>另外需要注意的是，对同一个文件应用多个loader时，处理顺序是从右到左，如下：</p>
+<pre><code>{
+    test: /\.less$/,
+    loader: &quot;style!css!postcss!less&quot;
+}
+</code></pre><p>这种情况一定要注意loader的顺序。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;webpack纯新手入门（二）&quot;&gt;&lt;a href=&quot;#webpack纯新手入门（二）&quot; class=&quot;headerlink&quot; title=&quot;webpack纯新手入门（二）&quot;&gt;&lt;/a&gt;webpack纯新手入门（二）&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;在&lt;a href=&quot;http://yanfenqiang.com/2017/02/19/%E5%B7%A5%E5%85%B7/webpack%E7%BA%AF%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/#more&quot;&gt;webpack纯新手入门（一）&lt;/a&gt;中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。&lt;/p&gt;
+&lt;h1 id=&quot;webpack基本配置&quot;&gt;&lt;a href=&quot;#webpack基本配置&quot; class=&quot;headerlink&quot; title=&quot;webpack基本配置&quot;&gt;&lt;/a&gt;webpack基本配置&lt;/h1&gt;&lt;p&gt;我们在我们的根目录中新建一个&lt;code&gt;webpack.config.js&lt;/code&gt;文件.可以参考&lt;a href=&quot;http://webpack.github.io/docs/configuration.html&quot;&gt;webpack的官网config相关&lt;/a&gt;。&lt;br&gt;当我们在命令行中直接运行&lt;code&gt;webpack&lt;/code&gt;命令的时候，webpack会默认去执行&lt;em&gt;webpack.config.js&lt;/em&gt;文件。当然，我们也可以通过&lt;code&gt;webpack --config xx.js&lt;/code&gt;让webpack运行其他的配置文件。&lt;br&gt;以下就是一个最简单的配置文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;module.exports = {
+    entry: &amp;apos;./src/script/main.js&amp;apos;,
+    output: {
+        path: &amp;apos;./dist/js&amp;apos;,
+        filename: &amp;apos;bundle.js&amp;apos;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://yanfenqiang.com/tags/webpack/"/>
+    
+      <category term="工具" scheme="http://yanfenqiang.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>webpack纯新手入门（一）</title>
