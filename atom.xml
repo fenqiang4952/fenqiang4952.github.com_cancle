@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yanfenqiang.com/"/>
-  <updated>2017-02-20T15:01:57.986Z</updated>
+  <updated>2017-02-20T15:04:46.000Z</updated>
   <id>http://yanfenqiang.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yanfenqiang.com/2017/02/20/%E5%B7%A5%E5%85%B7/webpack%E7%BA%AF%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://yanfenqiang.com/2017/02/20/工具/webpack纯新手入门（二）/</id>
     <published>2017-02-20T15:01:52.567Z</published>
-    <updated>2017-02-20T15:01:57.986Z</updated>
+    <updated>2017-02-20T15:04:46.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>在<a href="http://yanfenqiang.com/2017/02/19/%E5%B7%A5%E5%85%B7/webpack%E7%BA%AF%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/#more">webpack纯新手入门（一）</a>中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。</p>
@@ -33,7 +33,8 @@
         filename: &apos;bundle.js&apos;
     }
 }
-</code></pre><p><code>entry</code>是打包的入口,即输入。<code>output</code>为输出。<br>我们在命令行中运行<code>webpack</code>可查看打包的信息：</p>
+</code></pre><a id="more"></a>
+<p><code>entry</code>是打包的入口,即输入。<code>output</code>为输出。<br>我们在命令行中运行<code>webpack</code>可查看打包的信息：</p>
 <pre><code>Hash: 0bd4f09244f0e8c60354
 Version: webpack 2.2.1
 Time: 35ms
@@ -77,7 +78,17 @@ bundle.js  2.51 kB       0  [emitted]  main
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;在&lt;a href=&quot;http://yanfenqiang.com/2017/02/19/%E5%B7%A5%E5%85%B7/webpack%E7%BA%AF%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%88
+&lt;p&gt;在&lt;a href=&quot;http://yanfenqiang.com/2017/02/19/%E5%B7%A5%E5%85%B7/webpack%E7%BA%AF%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/#more&quot;&gt;webpack纯新手入门（一）&lt;/a&gt;中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;webpack基本配置&quot;&gt;&lt;a href=&quot;#webpack基本配置&quot; class=&quot;headerlink&quot; title=&quot;webpack基本配置&quot;&gt;&lt;/a&gt;webpack基本配置&lt;/h1&gt;&lt;p&gt;我们在我们的根目录中新建一个&lt;code&gt;webpack.config.js&lt;/code&gt;文件.可以参考&lt;a href=&quot;http://webpack.github.io/docs/configuration.html&quot;&gt;webpack的官网config相关&lt;/a&gt;。&lt;br&gt;当我们在命令行中直接运行&lt;code&gt;webpack&lt;/code&gt;命令的时候，webpack会默认去执行&lt;em&gt;webpack.config.js&lt;/em&gt;文件。当然，我们也可以通过&lt;code&gt;webpack --config xx.js&lt;/code&gt;让webpack运行其他的配置文件。&lt;br&gt;以下就是一个最简单的配置文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;module.exports = {
+    entry: &amp;apos;./src/script/main.js&amp;apos;,
+    output: {
+        path: &amp;apos;./dist/js&amp;apos;,
+        filename: &amp;apos;bundle.js&amp;apos;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
