@@ -89,22 +89,22 @@
 
 
 
-<meta name="description" content="webpack纯新手入门（二）
-在webpack纯新手入门（一）中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。
-webpack基本配置我们在我们的根目录中新建一个webpack.config.js文件.可以参考webpack的官网config相关。当我们在命令行中直">
+<meta name="description" content="在webpack纯新手入门（一）中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。
+
+webpack基本配置我们在我们的根目录中新建一个webpack.config.js文件.可以参考webpack的官网config相关。当我们在命令行中直接运行webpack命令的时">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack纯新手入门（二）">
 <meta property="og:url" content="http://yanfenqiang.com/2017/02/20/工具/webpack纯新手入门（二）/index.html">
 <meta property="og:site_name" content="stiveYan">
-<meta property="og:description" content="webpack纯新手入门（二）
-在webpack纯新手入门（一）中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。
-webpack基本配置我们在我们的根目录中新建一个webpack.config.js文件.可以参考webpack的官网config相关。当我们在命令行中直">
-<meta property="og:updated_time" content="2017-02-20T14:58:59.000Z">
+<meta property="og:description" content="在webpack纯新手入门（一）中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。
+
+webpack基本配置我们在我们的根目录中新建一个webpack.config.js文件.可以参考webpack的官网config相关。当我们在命令行中直接运行webpack命令的时">
+<meta property="og:updated_time" content="2017-02-20T15:01:57.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack纯新手入门（二）">
-<meta name="twitter:description" content="webpack纯新手入门（二）
-在webpack纯新手入门（一）中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。
-webpack基本配置我们在我们的根目录中新建一个webpack.config.js文件.可以参考webpack的官网config相关。当我们在命令行中直">
+<meta name="twitter:description" content="在webpack纯新手入门（一）中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。
+
+webpack基本配置我们在我们的根目录中新建一个webpack.config.js文件.可以参考webpack的官网config相关。当我们在命令行中直接运行webpack命令的时">
 
 
 
@@ -304,7 +304,7 @@ webpack基本配置我们在我们的根目录中新建一个webpack.config.js�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-20T22:57:42+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-20T23:01:52+08:00">
                 2017-02-20
               </time>
             
@@ -361,8 +361,9 @@ webpack基本配置我们在我们的根目录中新建一个webpack.config.js�
       
 
       
-        <h1 id="webpack纯新手入门（二）"><a href="#webpack纯新手入门（二）" class="headerlink" title="webpack纯新手入门（二）"></a>webpack纯新手入门（二）</h1><hr>
+        <blockquote>
 <p>在<a href="http://yanfenqiang.com/2017/02/19/%E5%B7%A5%E5%85%B7/webpack%E7%BA%AF%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89/#more">webpack纯新手入门（一）</a>中我们记录了，使用webpack在命令行中打包，以及css-loader的使用。在实际生产中，我们不可能针对每一个引用的文件写loader。所以我们需要配置文件去做一些批量的工作。</p>
+</blockquote>
 <h1 id="webpack基本配置"><a href="#webpack基本配置" class="headerlink" title="webpack基本配置"></a>webpack基本配置</h1><p>我们在我们的根目录中新建一个<code>webpack.config.js</code>文件.可以参考<a href="http://webpack.github.io/docs/configuration.html" target="_blank" rel="external">webpack的官网config相关</a>。<br>当我们在命令行中直接运行<code>webpack</code>命令的时候，webpack会默认去执行<em>webpack.config.js</em>文件。当然，我们也可以通过<code>webpack --config xx.js</code>让webpack运行其他的配置文件。<br>以下就是一个最简单的配置文件：</p>
 <pre><code>module.exports = {
     entry: &apos;./src/script/main.js&apos;,
@@ -371,8 +372,7 @@ webpack基本配置我们在我们的根目录中新建一个webpack.config.js�
         filename: &apos;bundle.js&apos;
     }
 }
-</code></pre><a id="more"></a>
-<p><code>entry</code>是打包的入口,即输入。<code>output</code>为输出。<br>我们在命令行中运行<code>webpack</code>可查看打包的信息：</p>
+</code></pre><p><code>entry</code>是打包的入口,即输入。<code>output</code>为输出。<br>我们在命令行中运行<code>webpack</code>可查看打包的信息：</p>
 <pre><code>Hash: 0bd4f09244f0e8c60354
 Version: webpack 2.2.1
 Time: 35ms
@@ -607,7 +607,7 @@ bundle.js  2.51 kB       0  [emitted]  main
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack纯新手入门（二）"><span class="nav-number">1.</span> <span class="nav-text">webpack纯新手入门（二）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack基本配置"><span class="nav-number">2.</span> <span class="nav-text">webpack基本配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#loaders"><span class="nav-number">3.</span> <span class="nav-text">loaders</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#babel"><span class="nav-number">3.1.</span> <span class="nav-text">babel</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack基本配置"><span class="nav-number">1.</span> <span class="nav-text">webpack基本配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#loaders"><span class="nav-number">2.</span> <span class="nav-text">loaders</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#babel"><span class="nav-number">2.1.</span> <span class="nav-text">babel</span></a></li></ol></li></ol></div>
             
 
           </div>
