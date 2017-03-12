@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yanfenqiang.com/"/>
-  <updated>2017-03-12T15:36:43.000Z</updated>
+  <updated>2017-02-20T15:04:46.000Z</updated>
   <id>http://yanfenqiang.com/</id>
   
   <author>
@@ -14,33 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>css3美化checkbox</title>
-    <link href="http://yanfenqiang.com/2017/03/12/css3/test/"/>
-    <id>http://yanfenqiang.com/2017/03/12/css3/test/</id>
-    <published>2017-03-12T15:36:25.469Z</published>
-    <updated>2017-03-12T15:36:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="CSS美化的checkbox-test"><a href="#CSS美化的checkbox-test" class="headerlink" title="CSS美化的checkbox-test."></a>CSS美化的checkbox-test.</h2><ul>
-<li><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;CSS美化的checkbox-test&quot;&gt;&lt;a href=&quot;#CSS美化的checkbox-test&quot; class=&quot;headerlink&quot; title=&quot;CSS美化的checkbox-test.&quot;&gt;&lt;/a&gt;CSS美化的checkbox-test.&lt;/h2&gt;&lt;ul
-    
-    </summary>
-    
-    
-      <category term="html5" scheme="http://yanfenqiang.com/tags/html5/"/>
-    
-      <category term="css3" scheme="http://yanfenqiang.com/tags/css3/"/>
-    
-      <category term="checkbox" scheme="http://yanfenqiang.com/tags/checkbox/"/>
-    
-  </entry>
   
   <entry>
     <title>webpack纯新手入门（二）</title>
