@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yanfenqiang.com/"/>
-  <updated>2017-02-20T15:04:46.000Z</updated>
+  <updated>2017-03-12T15:59:34.585Z</updated>
   <id>http://yanfenqiang.com/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AngularJs $http请求踩坑</title>
+    <link href="http://yanfenqiang.com/2017/03/12/angularJs/AngularJs%20$http%E8%AF%B7%E6%B1%82%E8%B8%A9%E5%9D%91/"/>
+    <id>http://yanfenqiang.com/2017/03/12/angularJs/AngularJs $http请求踩坑/</id>
+    <published>2017-03-12T15:59:25.077Z</published>
+    <updated>2017-03-12T15:59:34.585Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="AngularJs-http请求踩坑"><a href="#AngularJs-http请求踩坑" class="headerlink" title="AngularJs $http请求踩坑"></a>AngularJs $http请求踩坑</h1><blockquote>
+<p>最近在用angularjs的$http的时候，出现了一些坑，记录一下。</p>
+</blockquote>
+<h2 id="get请求中文乱码问题"><a href="#get请求中文乱码问题" class="headerlink" title="get请求中文乱码问题"></a>get请求中文乱码问题</h2><h2 id="post-请求报错，请求参数格式问题"><a href="#post-请求报错，请求参数格式问题" class="headerlink" title="post 请求报错，请求参数格式问题"></a>post 请求报错，请求参数格式问题</h2><h2 id="post请求传文件，请求头设置问题"><a href="#post请求传文件，请求头设置问题" class="headerlink" title="post请求传文件，请求头设置问题"></a>post请求传文件，请求头设置问题</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;AngularJs-http请求踩坑&quot;&gt;&lt;a href=&quot;#AngularJs-http请求踩坑&quot; class=&quot;headerlink&quot; title=&quot;AngularJs $http请求踩坑&quot;&gt;&lt;/a&gt;AngularJs $http请求踩坑&lt;/h1&gt;&lt;blockq
+    
+    </summary>
+    
+    
+      <category term="angularJs" scheme="http://yanfenqiang.com/tags/angularJs/"/>
+    
+      <category term="$http" scheme="http://yanfenqiang.com/tags/http/"/>
+    
+      <category term="ajax" scheme="http://yanfenqiang.com/tags/ajax/"/>
+    
+  </entry>
   
   <entry>
     <title>webpack纯新手入门（二）</title>
